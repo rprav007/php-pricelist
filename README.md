@@ -23,7 +23,7 @@ user@host$ oc new-app --name=mysql -l appname=mysqlcrud --template=mysql-ephemer
 
 Create your application using this repo; passing the parameters you used above
 ```
-user@host$ oc new-app --name=pricelist https://github.com/christianh814/php-pricelist -e MYSQL_USER=pricelist -e MYSQL_PASSWORD=pricelist -e MYSQL_DATABASE=pricelist -l appname=pricelist
+user@host$ oc new-app --name=pricelist https://github.com/RedHatWorkshops/php-pricelist -e MYSQL_USER=pricelist -e MYSQL_PASSWORD=pricelist -e MYSQL_DATABASE=pricelist -l appname=pricelist
 user@host$ oc expose svc/pricelist
 ```
 
