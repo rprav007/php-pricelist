@@ -16,7 +16,7 @@ NOTE:
   * However; `DATABASE_SERVICE_NAME` must be kept as `mysql`
 
 ```
-user@host$ oc new-app --name=mysql -l appname=mysqlcrud --template=mysql-ephemeral -p DATABASE_SERVICE_NAME=mysql,MYSQL_USER=pricelist,MYSQL_PASSWORD=pricelist,MYSQL_DATABASE=pricelist
+user@host$ oc new-app --name=mysql -l appname=mysqlcrud --template=mysql-ephemeral -p DATABASE_SERVICE_NAME=mysql -p MYSQL_USER=pricelist -p MYSQL_PASSWORD=pricelist -p MYSQL_DATABASE=pricelist
 ```
 
 ## Create your application
@@ -36,7 +36,7 @@ user@host$ oc env dc/pricelist MYSQL_USER=pricelist MYSQL_PASSWORD=pricelist MYS
 Initialize the DB with a curl cummand
 
 ```
-curl -k http://$(oc get route/php-pricelist -o jsonpath='{.spec.host}')/create_database.php
+curl -k http://$(oc get route/pricelist -o jsonpath='{.spec.host}')/create_database.php
 ```
 
 Where `route/php-pricelist` is what you named the app.
