@@ -17,7 +17,7 @@ if (file_exists($db_config_file)) {
 }
 
 try {
-	$con = new PDO("mysql:host={$host};dbname={$db_name};port={$port}", $username, $password);
+	$con = new PDO("sqlsrv:host={$host};dbname={$db_name};port={$port}", $username, $password);
 }
 
 // to handle connection error
