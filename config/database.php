@@ -17,7 +17,13 @@ if (file_exists($db_config_file)) {
 }
 
 try {
-	$con = new PDO("sqlsrv:host={$host};dbname={$db_name};port={$port}", $username, $password);
+	//$serverName = “$host, $port”;
+	$serverName = $host;
+        $connectionInfo = array(“Database”=>$db_name, “UID”=>$username, “PWD”=>$password);
+        //$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+	//$con = new PDO("sqlsrv:host={$host};dbname={$db_name};port={$port}", $username, $password);
+	$con = new PDO("sqlsrv_connect($serverName, $connectionInfo)");
 }
 
 // to handle connection error
